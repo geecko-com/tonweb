@@ -35,6 +35,9 @@ import { NftCollection } from './contract/token/nft/nft-collection';
 export { CreateChangeOwnerBodyParams, CreateGetRoyaltyParamsBodyParams, MintBodyParams, NftCollectionMethods, NftCollectionOptions, NftItemContent, RoyaltyParams, CollectionData, } from './contract/token/nft/nft-collection';
 import { NftItem } from './contract/token/nft/nft-item';
 export { CreateGetStaticDataBodyParams, CreateTransferBodyParams, NftItemMethods, NftItemOptions, NftItemData, } from './contract/token/nft/nft-item';
+import { SbtCollection } from './contract/token/nft/sbt-collection';
+export { SbtMintBodyParams } from './contract/token/nft/sbt-collection';
+import { SbtItem } from './contract/token/nft/sbt-item';
 import { NftMarketplace } from './contract/token/nft/nft-marketplace';
 export { NftMarketplaceMethods, NftMarketplaceOptions, } from './contract/token/nft/nft-marketplace';
 import { NftSale } from './contract/token/nft/nft-sale';
@@ -94,6 +97,8 @@ export default class TonWeb {
             NftItem: typeof NftItem;
             NftMarketplace: typeof NftMarketplace;
             NftSale: typeof NftSale;
+            SbtCollecvtion: typeof SbtCollection;
+            SbtItem: typeof SbtItem;
         };
         ft: {
             JettonWallet: typeof JettonWallet;
@@ -165,11 +170,11 @@ export default class TonWeb {
     /**
      * Contract address.
      */
-    address: AddressType, 
+    address: AddressType,
     /**
      * Method name or method ID.
      */
-    method: (string | number), 
+    method: (string | number),
     /**
      * Array of stack elements.
      */
