@@ -97,7 +97,7 @@ export default class TonWeb {
             NftItem: typeof NftItem;
             NftMarketplace: typeof NftMarketplace;
             NftSale: typeof NftSale;
-            SbtCollecvtion: typeof SbtCollection;
+            SbtCollection: typeof SbtCollection;
             SbtItem: typeof SbtItem;
         };
         ft: {
