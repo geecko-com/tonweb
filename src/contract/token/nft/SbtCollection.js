@@ -24,8 +24,9 @@ class SbtCollection extends NftCollection {
         const sbtItemAuthorityAddress = new Cell();
         sbtItemAuthorityAddress.bits.writeAddress(params.authorityAddress);
 
+        nftItemContent.refs[1] = sbtItemAuthorityAddress;
+
         body.refs[0] = nftItemContent;
-        body.refs[1] = sbtItemAuthorityAddress;
 
         return body;
     }
