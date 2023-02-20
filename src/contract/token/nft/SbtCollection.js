@@ -8,13 +8,23 @@ class SbtCollection extends NftCollection {
      * @return {Cell}
      */
     createMintBody(params) {
-        const body = super.createMintBody(params);
+        const body = new Cell();
+        body.bits.writeUint(1, 32); // OP deploy new nft
+        body.bits.writeUint(params.queryId || 0, 64); // query_id
+        body.bits.writeUint(params.itemIndex, 64);
+        body.bits.writeCoins(params.amount);
 
-        const sbtItemAuthorityAddress = new Cell();
-        sbtItemAuthorityAddress.bits.writeAddress(params.authorityAddress);
+        console.log(params.authorityAddress);
 
-        body.refs[1] = sbtItemAuthorityAddress;
+        const nftItemContent = new Cell();
+        nftItemContent.bits.writeAddress(params.itemOwnerAddress);
+        nftItemContent.bits.writeAddress(params.authorityAddress);
 
+        const uriContent = new Cell();
+        uriContent.bits.writeBytes(serializeUri(params.itemContentUri));
+        nftItemContent.refs[0] = uriContent;
+
+        body.refs[0] = nftItemContent;
         return body;
     }
 }
