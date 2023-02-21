@@ -14,8 +14,6 @@ class SbtCollection extends NftCollection {
         body.bits.writeUint(params.itemIndex, 64);
         body.bits.writeCoins(params.amount);
 
-        console.log(params.authorityAddress);
-
         const nftItemContent = new Cell();
         nftItemContent.bits.writeAddress(params.itemOwnerAddress);
         nftItemContent.bits.writeAddress(params.authorityAddress);
