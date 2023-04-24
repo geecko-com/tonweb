@@ -153,7 +153,7 @@ export default class TonWeb {
      * Use this method to get transaction history of a given address.
      * Returns array of transaction objects.
      */
-    getTransactions(address: AddressType, limit?: number, lt?: number, txhash?: string, to_lt?: number): Promise<any>;
+    getTransactions(address: AddressType, limit?: number, lt?: number, txhash?: string, to_lt?: number, archival?: undefined | boolean): Promise<any>;
     /**
      * Returns current balance for the given address in nanograms.
      */
