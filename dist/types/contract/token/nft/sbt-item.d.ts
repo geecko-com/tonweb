@@ -22,6 +22,8 @@ export declare class SbtItem extends NftItem {
 
     createGetStaticDataBody(params: CreateGetStaticDataBodyParams): Cell;
 
+    createDestroyBody(): Cell;
+
     /**
      * Returns cell that contains NFT data.
      */
