@@ -7,6 +7,14 @@ class SbtItem extends NftItem {
     async createTransferBody(params) {
         throw new Error("transfer method is not supported on SBT");
     }
+
+    async createDestroyBody() {
+        const cell = new Cell();
+        cell.bits.writeUint(0x1f04537a, 32); // transfer op
+        cell.bits.writeUint( 0, 64);
+
+        return cell;
+    }
 }
 
 SbtItem.codeHex = SBT_ITEM_CODE_HEX;
